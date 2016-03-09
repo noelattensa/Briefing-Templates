@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml"><head>
+<!-- If you delete this tag, the sky will fall on your head -->
+<meta name="viewport" content="width=device-width">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  margin: 0px;
+  background-color: #ffffff;
+}
+
+.header {
+  background-color: #ffffff;
+}
+.body {
+  background-color: #ffffff;
+}
+.content {
+  background-color: #ffffff;
+}
+.footer {
+  background-color: #ffffff;
+}
+.sidebar {
+  background-color: #ffffff;
+}
+.text-white{color:#fff;}
+.text-white a {color:#f68e1e;}
+td.background-darkblue{
+background:#27323a;
+}
+    a{text-decoration: none;}
+p{
+    font-size:12px;
+    display: block;
+    -webkit-margin-before: .5em;
+    -webkit-margin-after: .5em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;}
+h2{font-size: 18px;}
+img{width:100%;}
+
+</style>
+<style type="text/css">
+    @media only screen and (max-width: 450px) {
+      table, td, th{ width: 100% !important; display: block; box-sizing: border-box; }
+      .column, .sidebar{
+            display:block !important;
+            width:100% !important;
+            line-height:18px !important;
+            max-width: 100%;
+      }
+
+      img {  max-width: 100% !important; height: auto !important; }
+      .respondToFit , .responsiveImage { width: 100% !important; }
+
+    }
+</style>
+</head>
+
+ <!-- DOC MAX WIDTH SETUP -->
+<body style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', 'sans-serif'; font-weight: 300;">
+    <!-- FULL BODY TABLE -->
+    <table class="body"  margin="0" padding="0" border-spacing="0px" style="background-color: #ffffff;width:100%;" name = "top"><!-- SUPER IMPORTANT -->
+        <tbody>
+            <tr>
+                <td>
+                    <!-- CENTER WRAPPER -->
+                    <table class="center" align="center" width="800">
+                        <tbody>
+                            <tr>
+                                <td class="">
+
+
+    <table cellpadding="0" cellspacing="0" border="0" class="sidebar" style="background: #fff;table-layout:fixed;" data-columns="1" width="800" style = "border-bottom:1px dashed #414141; margin-bottom:10px;">
+        <tbody>
+            <tr>
+                <td valign = "top" style ="background:#fff;" >
+                        <img style="color:#fff;width:100px;padding-top:10px;padding-bottom:10px;" src="http://attensa.com/download/files/logos/Attensa-darjLogo-286x89.png" alt="" width=""  style = ""/>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- CONTENT SECTION -->
+                                    
+    <table cellpadding="3" cellspacing="0" border="0" class="sidebar" style="background: #fff;table-layout:fixed;" data-columns="" width="800">
+        <tbody>
+            <tr>
+                <td width= "" style = "text-align:left;background:#27323a;vertical-align:top;">
+                <p style = "color:#fff;font-size:12px;margin-top:0;margin-bottom:0;display:inline-block;width:82%;">Your Briefing is Ready - {{formatDate sendDate "MMMM, dd yyyy"}}</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        <table cellpadding="12" cellspacing="0" border="0" class="sidebar" style="background: #fff;table-layout:fixed;margin-bottom:5px;" data-columns="" width="800">
+        <tbody>
+            <tr>
+                 <td valign = "top" style ="margin-bottom:15px;background:#f7f7f7;border-right:1px solid #e4e4e4;border-left:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;" >
+                    <div class="editable " data-editable="standard" style = "">
+                        <span style="color:#414141;font-size:18px;font-weight:bold">{{stream.title}}</span><br />
+                        <span style="color:#414141;font-size:13px;margin-top:10px;">{{briefing.description}}</span><br /><br />
+                        <span style="color:#333;font-size:13px;font-weight:bold;">New article items from:</span>
+                         <ul style="color:#333;font-size:13px; padding-left:20px;margin-bottom:30px; ">
+                          {{#each indexedStreams}}
+                            <li><span>{{streamTitle}}</span></a></li>
+                            {{/each}}
+                      </ul>
+                    <p style = "margin-bottom:25px;"><a href = "{{indexedTopicView}}" target="_blank" style = "background: #444;color: #fff;padding: 10px;margin: 30px 0px 50px;">View Briefing &#187;</a></p>
+                 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<!-- FOOTER -->       
+    <table cellpadding="10" cellspacing="0" border="0" class="sidebar" style="background: #fff;table-layout:fixed;border-bottom:solid 5px #27323a;" data-columns="1" width="800" style = "border-bottom:1px dashed #27323a; margin-bottom:10px;">
+        <tbody>
+            <tr>
+                <td valign = "top" style ="background:#27323a;" >
+                    <span style = "color:#fff;font-size:12px;font-weight:bold;" >Made by Attensa Corporation</span><br />
+                    <span style = "color:#D6DDE2;font-size:12px;" >Portland, Oregon</span><br />
+                    <span style = "color:#fff;font-size:12px;" ><a href = "www.attensa.com" target="_blank" style = "color:#ccdae5;">www.attensa.com</a></span><br />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+                                        <table class="header" style="background-color: #ffffff" cellspacing="10" border="0" cellpadding="0">
+      <tbody>
+          <tr>
+            <td width="800" class="header" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff">
+              <table class="header" cellpadding="0" cellspacing="0" border="0" align="left" style="background-color: #ffffff">
+                <tbody><tr>
+                  <td class="">
+                    <div class = "editable">
+                      <span style="color:#747474;font-size:12px;margin-top:15px;">Having trouble viewing this email? <a href = "{{viewAsHTML}}">View in HTML view. </a></span>
+                      </div>
+                  </td>
+                </tr>
+              </tbody></table>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+            
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 <!-- END CENTER WRAPPER -->
+            </tr>
+        </tbody>
+    </table>
+     <!-- END FULL BODY TABLE -->
+</body>
+</html>
+
+
