@@ -174,7 +174,7 @@
             <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 800px;">
 	            <tr>
 					<td style="padding: 20px 0 ;float:left;">
-						<img src="http://attensa.com/download/files/logos/Attensa-darjLogo-286x89.png" width="100" height="" alt="alt_text" border="0">
+						<img src="http://attensa.com/download/files/logos/Attensa-darjLogo-286x89.png" width="200" height="" alt="alt_text" border="0">
 					</td>
 	            </tr>
             </table>
@@ -190,8 +190,8 @@
                                 <td align="center" valign="top" width="75%" style = "background:#27323a;">
                                     <table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;background:#27323a;">
                                         <tr>
-                                            <td style="text-align: left;font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #fff; font-weight:bold;padding-left:10px;" class="stack-column-center">
-                                               Briefing is Ready
+                                            <td style="text-align: left;font-family: sans-serif; font-size: 18px; mso-height-rule: exactly; line-height: 20px; color: #fff; font-weight:bold;padding-left:10px;" class="stack-column-center">
+                                               {{briefing.templateTitle}} 
                                             </td>
                                         </tr>
                                     </table>
@@ -199,7 +199,7 @@
                                 <td align="center" valign="top" width="25%" style = "background:#27323a;">
                                     <table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
                                         <tr>
-                                            <td style="text-align:right;font-family: sans-serif; font-size: 14px; mso-height-rule: exactly; line-height: 20px; color: #fff; padding-right:10px;" class="stack-column-center">
+                                            <td style="text-align:right;font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #fff; padding-right:10px;" class="stack-column-center">
                                                 {{formatDate sendDate "MMMM, dd yyyy"}}
                                             </td>
                                         </tr>
@@ -220,22 +220,55 @@
 					<td>
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
 							<tr>
-								<td style="padding-left: 10px;padding-right: 10px;padding-top: 35px; text-align: left; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #fff; background:#fff;border-bottom:1px solid #e4e4e4;border-left:1px solid #e4e4e4;border-right:1px solid #e4e4e4;">
-									                        <span style="color:#414141;font-size:24px;font-weight:bold">{{stream.title}}</span><br /><br />
-                        <span style="color:#414141;font-size:13px;margin-top:15px;">{{briefing.description}}</span><br /><br />
-                        <span style="color:#333;font-size:13px;font-weight:bold;">New article items from:</span>
-                         <ul style="color:#333;font-size:13px; padding-left:20px;margin-bottom:30px; ">
+								<td style="padding-left: 10px;padding-right: 10px;padding-top: 10px; text-align: left; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #fff; background:#fff;border-bottom:1px solid #e4e4e4;border-left:1px solid #e4e4e4;border-right:1px solid #e4e4e4;">
+									<!-- Button : Begin -->
+                        <span style="color:#333;font-size:12px;">{{briefing.description}}</span><br />
+                        <span style="color:#333;font-size:12px;font-weight:bold;">Topics included:</span>
+                         <ul style="color:#333;font-size:12px; padding-left:20px; ">
                           {{#each indexedStreams}}
-                            <li><span>{{streamTitle}}</span></a></li>
+                            <li><a href="#{{streamId}}" target="_self" style = "color:#38435c;"><span>{{streamTitle}}</span></a> - ({{itemCount}})</li>
                             {{/each}}
                       </ul>
-                    <p style = "margin-bottom:55px;margin-top:25px;margin-left:25px;"><a href = "{{indexedTopicView}}" target="_blank" style = "-moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; border-bottom: 2px solid #000 !important; background: #1e73be;color: #fff;padding: 10px;margin: 40px 0px 60px;">View Briefing &#187;</a></p>
+									<!-- Button : END -->
 								</td>
 							</tr>
                         </table>
 					</td>
                 </tr>
                 <!-- Hero Image, Flush : END -->
+
+                <!-- 1 Column Text + Button : BEGIN -->
+                <tr>
+                    <td>
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+							<tr>
+								<td style=" text-align: left; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555;background:#f4f4f4;">
+{{#each indexedStreams}}
+                             <div name="{{streamId}}" style = "margin-top:10px;"> 
+                                 <p style = "font-size:18px; font-weight:bold;    margin-bottom: 6px;">{{streamTitle}}<a name = "{{streamId}}">&nbsp;</a></p>
+                                 <span style = "font-size:13px; font-weight:normal;">{{streamDescription}}&nbsp;</span>
+                                 {{#each items}}
+                                        <div class="editable" style = "margin-top:10px;border-bottom:1px solid #e4e4e4;padding-bottom:10px;border-right:1px solid #e4e4e4;border-top:1px solid #e4e4e4;border-left:1px solid #e4e4e4;background:#fff;">
+                                            <div style = "padding-left:10px;padding-right:10px;">
+                                            <h2 class = "article-title" style ="font-size:15px;margin-bottom:2px;">
+                                                <a href="{{link}}" target="_blank">{{title}}</a>
+                                            </h2>
+                                            <span style = " font-size:12px;">{{formatDateTime publishedDate}}{{#if author}} by {{author}}{{/if}} - from {{stream.Title}} - <a href = "{{sourceLink}}" target="_blank">Direct Link</a>
+                                            </span>
+                                            <p style = "border-top:1px dashed #eee;font-size:13px;padding-top:5px;margin-top:5px;margin-bottom:0px;word-wrap: break-word;padding-left:5px;">{{{shortDescription}}}</p>
+                                 </div>
+                                 
+                                        </div>
+                                  {{/each}}
+                            </div>
+                        {{/each}}
+								</td>
+							</tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- 1 Column Text + Button : BEGIN -->
+
 
 			</table>
             <!-- Email Body : END -->
@@ -244,7 +277,7 @@
             <table cellspacing="0" cellpadding="0" border="0" align="left" width="100%" style="max-width: 680px;">
                 <tr>
                     <td style="padding: 40px 10px;width: 100%;font-size: 12px; font-family: sans-serif; mso-height-rule: exactly; line-height:18px; text-align: left; color: #666;">
-                        Questions regarding your subscriptions contact your administrator. Click here to view your <a href = "{{subscriptions}}">briefing subscriptions.</a>
+                       Questions regarding your subscriptions contact your administrator. Click here to view your <a href = "{{subscriptions}}">briefing subscriptions.</a>
                         <br> <br>
                         Made by <strong>Attensa Corporation</strong><br><span class="mobile-link--footer">Portland, Oregon</span><br><span class="mobile-link--footer">www.attensa.com</span>
                         <br><br>
