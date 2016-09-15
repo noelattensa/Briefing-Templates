@@ -1,6 +1,6 @@
 <h2>Briefing Template</h2>
 
-<p>These are our four starter templates. All you need is a basic understanding of HTML and CSS to customise the general layout of the briefing templates. For more information on the template markup, visit <a href = "http://tedgoas.github.io/Cerberus/">Cerberus</a> from Ted Goas. All serve different functions but vary in code by only a few variable changes.  </p>
+<p>These are our four starter templates. All you need is a basic understanding of HTML and CSS to customise the general layout of the briefing templates. For more information on the template markup, visit <a href = "http://tedgoas.github.io/Cerberus/">Cerberus</a> from Ted Goas. View our <a href ="http://attensadev.github.io/attensa-api-docs/#template-data">briefing variable handles</a> at our API Reference. </p>
 <p>&nbsp;</p>
 
 <h4>Standard Template</h4>
