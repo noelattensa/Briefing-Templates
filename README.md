@@ -1,9 +1,9 @@
-<h2>Briefing Template</h2>
+<h2>Attensa Digest, No Table of Contents</h2>
 
 <p>These are our four starter templates. All you need is a basic understanding of HTML and CSS to customise the general layout of the briefing templates. For more information on the template markup, visit <a href = "http://tedgoas.github.io/Cerberus/">Cerberus</a> from Ted Goas. View our <a href ="http://attensadev.github.io/attensa-api-docs/#template-data">briefing variable handles</a> at our API Reference. </p>
 <p>&nbsp;</p>
 
-<h4>Standard Template</h4>
+<h4>Full Text Template</h4>
 
 <p>The <strong>Full Standard</strong> template and the <strong>Personal Digest</strong> template are essential the same template. The Full template will display all the content available under each item. The Personal Digest Template will display only text and only the first 200 characters. Particular to these templates, each contain links for active users to view their current briefing subscription. </p><p>&nbsp;</p>
 
