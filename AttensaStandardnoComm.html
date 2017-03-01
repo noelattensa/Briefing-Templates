@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8"> <!-- utf-8 works for most cases -->
+    <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
+	<title></title> <!-- The title tag shows in email notifications, like Android 4.4. -->
+
+	<!-- Web Font / @font-face : BEGIN -->
+	<!-- NOTE: If web fonts are not required, lines 9 - 26 can be safely removed. -->
+
+	<!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
+	<!--[if mso]>
+		<style>
+			* {
+				font-family: sans-serif !important;
+			}
+		</style>
+	<![endif]-->
+
+	<!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
+	<!--[if !mso]><!-->
+		<!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
+	<!--<![endif]-->
+
+	<!-- Web Font / @font-face : END -->
+
+	<!-- CSS Reset -->
+    <style type="text/css">
+
+		/* What it does: Remove spaces around the email design added by some email clients. */
+		/* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+        html,
+        body {
+            Margin: 0 !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
+
+        /* What it does: Stops email clients resizing small text. */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* What it does: Centers email on Android 4.4 */
+        div[style*="margin: 16px 0"] {
+            margin:0 !important;
+        }
+
+        /* What it does: Stops Outlook from adding extra spacing to tables. */
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            Margin: 0 auto !important;
+        }
+        table table table {
+            table-layout: auto;
+        }
+
+        /* What it does: Uses a better rendering method when resizing images in IE. */
+        img {
+            -ms-interpolation-mode:bicubic;
+        }
+
+        /* What it does: Overrides styles added when Yahoo's auto-senses a link. */
+        .yshortcuts a {
+            border-bottom: none !important;
+        }
+
+        /* What it does: A work-around for iOS meddling in triggered links. */
+        .mobile-link--footer a,
+        a[x-apple-data-detectors] {
+            color:inherit !important;
+            text-decoration: underline !important;
+        }
+
+    </style>
+
+    <!-- Progressive Enhancements -->
+    <style>
+
+        /* What it does: Hover styles for buttons */
+        .button-td,
+        .button-a {
+            transition: all 100ms ease-in;
+        }
+        .button-td:hover,
+        .button-a:hover {
+            background: #555555 !important;
+            border-color: #555555 !important;
+        }
+
+
+
+        /* Media Queries */
+        @media screen and (max-width: 480px) {
+
+            /* What it does: Forces elements to resize to the full width of their container. Useful for resizing images beyond their max-width. */
+            .fluid,
+            .fluid-centered {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                Margin-left: auto !important;
+                Margin-right: auto !important;
+            }
+            /* And center justify these ones. */
+            .fluid-centered {
+                Margin-left: auto !important;
+                Margin-right: auto !important;
+            }
+
+            /* What it does: Forces table cells into full-width rows. */
+            .stack-column,
+            .stack-column-center {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                direction: ltr !important;
+            }
+            /* And center justify these ones. */
+            .stack-column-center {
+                text-align: left !important;
+            }
+
+            /* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
+            .center-on-narrow {
+                text-align: left !important;
+                display: block !important;
+                Margin-left: auto !important;
+                Margin-right: auto !important;
+                float: none !important;
+            }
+            table.center-on-narrow {
+                display: inline-block !important;
+            }
+
+        }
+
+    </style>
+
+    <style>
+        .btn {
+            box-sizing: border-box;
+            width: 100%; }
+        .btn > tbody > tr > td {
+            padding-bottom: 15px; }
+        .btn table {
+            width: auto; }
+        .btn table td {
+            background-color: #ffffff;
+            border-radius: 5px;
+            text-align: center; }
+        .btn a {
+            background-color: #ffffff;
+            border: solid 1px #1782C5;
+            border-radius: 5px;
+            box-sizing: border-box;
+            color: #3F51B5;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0;
+            padding: 8px 18px;
+            text-decoration: none;
+            text-transform: capitalize; }
+        .btn-primary table td {
+            background-color: #27323a; }
+        .btn-primary a {
+            background-color: #27323a;
+            border-color: #27323a;
+            color: #ffffff; }
+    </style>
+
+</head>
+<body width="100%" bgcolor="#f4f4f4" style="Margin: 0;">
+<table cellpadding="0" cellspacing="0" border="0" height="100%" width="100%" bgcolor="#f4f4f4" style="border-collapse:collapse;"><tr><td valign="top">
+    <center style="width: 100%;">
+
+        <!-- Visually Hidden Preheader Text : BEGIN -->
+        <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">
+            {{briefing.description}}
+        </div>
+        <!-- Visually Hidden Preheader Text : END -->
+
+        <!--
+            Set the email width. Defined in two places:
+            1. max-width for all clients set with Outlook, allowing the email to squish on narrow but never go wider than 600px.
+            2. MSO tags for Desktop Windows Outlook enforce a 600px width.
+        -->
+        <div style="max-width: 800px;">
+            <!--[if (gte mso 9)|(IE)]>
+            <table cellspacing="0" cellpadding="0" border="0" width="800" align="center">
+            <tr>
+            <td>
+            <![endif]-->
+
+            <!-- Email Header : BEGIN -->
+            <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 800px;">
+	            <tr>
+					<td style="padding: 20px 0 ;float:left;">
+						<img src="http://attensa.com/download/files/logos/Attensa-Logo-2017-400w.png" width="200" height="" alt="alt_text" border="0">
+					</td>
+	            </tr>
+            </table>
+            <!-- Email Header : END -->
+
+
+
+            <!-- Email Body : BEGIN -->
+            <table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#ffffff" width="100%" style="max-width: 800px;">
+                <!-- 2column begin -->
+                 <tr>
+                    <td bgcolor="#27323a" align="center" height="100%" valign="top" width="100%" style="padding-top: 10px;padding-bottom: 10px">
+                        <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="">
+                            <tr>
+                                <td align="center" valign="top" width="75%" style = "background:#27323a;">
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;background:#27323a;">
+                                        <tr>
+                                            <td style="text-align: left;font-family: sans-serif; font-size: 18px; mso-height-rule: exactly; line-height: 20px; color: #fff; font-weight:bold;padding-left:10px;" class="stack-column-center">
+                                               {{briefing.templateTitle}}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td align="center" valign="top" width="25%" style = "background:#27323a;">
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+                                        <tr>
+                                            <td style="text-align:right;font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #fff; padding-right:10px;" class="stack-column-center">
+                                                {{formatDate sendDate "MMMM, dd yyyy"}}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <!--[if mso]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]-->
+                    </td>
+                </tr>
+                <!-- 2column end -->
+                <!-- Hero Image, Flush : BEGIN -->
+                <tr>
+					<td>
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+							<tr>
+								<td style="padding-left: 10px;padding-right: 10px; text-align: left; font-family: sans-serif;  mso-height-rule: exactly;  border-bottom:1px solid #e4e4e4;border-left:1px solid #e4e4e4;border-right:1px solid #e4e4e4;">
+									<!-- Button : Begin -->
+                                    <p><!-- line-height helps description seem optional.... needs testing -->
+                                    <span style="font-style:italic;color:#333;font-size:13px;margin-top:10px;margin-top:10px;padding-top:8px;padding-bottom:8px;padding-right:8px;padding-right:8px;">{{briefing.description}}</span>
+                                    </p>
+									<!-- Button : END -->
+								</td>
+							</tr>
+                        </table>
+					</td>
+                </tr>
+
+                <!-- Hero Image, Flush : END -->
+
+
+                <!-- Hero Image, Flush : END -->
+
+                <tr>
+                    <td style="background:#f4f4f4;" align="right">
+                        <table border="0" cellpadding="10" cellspacing="0" class="btn btn-primary">
+                            <tbody>
+                            <tr>
+                                <td align="right">
+                                    <table border="0" cellpadding="" cellspacing="0">
+                                        <tbody>
+                                        <tr>
+                                            <td> <a href="http://{{hostName}}/invitation/briefings/{{briefing.id}}" target="_blank">SHARE</a> </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- 1 Column Text + Button : BEGIN -->
+                <tr>
+                    <td>
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+							<tr>
+								<td style=" text-align: left; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555;background:#f4f4f4;padding-top:15px">
+{{#each indexedStreams}}
+
+
+
+<div class="editable" style = "margin-top:10px;border-bottom:1px solid #e4e4e4;padding-bottom:10px;border-right:1px solid #e4e4e4;border-top:1px solid #e4e4e4;border-left:1px solid #e4e4e4;background:#fff;">
+    <span name="{{streamId}}" style = "font-size:18px; font-weight:bold;margin-bottom: 6px;margin-top:10px;color:#fff;background:#3d464e;padding:8px; " class = "arrow_box"><a name = "{{streamId}}"style ="color:#fff;">{{streamTitle}}</a></span>
+    <p style = "font-size:13px; font-weight:normal;border-bottom:1px solid #d8d8d8;font-size:13px;padding-top:5px;margin-top:5px;margin-bottom:15px;word-wrap: break-word;padding-left:5px;">{{streamDescription}}</p>
+{{#each items}}
+    <div style = "padding-left:10px;padding-right:10px;">
+<h2 class = "article-title" style ="font-size:15px;margin-bottom:2px;">
+<a href="{{sourceLink}}" target="_blank">{{title}}</a>
+</h2>
+<span style = " font-size:12px;">{{formatDateTime publishedDate}}{{#if author}} by {{author}}{{/if}} - from {{stream.Title}}
+</span>
+<p style = "border-top:1px dashed #eee;font-size:13px;padding-top:5px;margin-top:5px;margin-bottom:0px;word-wrap: break-word;padding-left:5px;">{{{shortDescription}}}<a href ="{{sourceLink}}" target="_blank">...</a></p>
+</div>
+    {{/each}}
+</div>
+
+{{/each}}
+
+
+
+
+
+
+
+
+
+
+
+								</td>
+							</tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- 1 Column Text + Button : BEGIN -->
+
+                <!-- 2column begin -->
+                 <tr>
+                    <td bgcolor="#31404b" align="center" height="100%" valign="top" width="100%" style="padding-top: 10px;padding-bottom: 10px">
+                        <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="">
+                            <tr>
+                                <td align="center" valign="middle" width="75%" style = "background:#31404b;">
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;background:#31404b;">
+                                        <tr>
+                                            <td style="text-align: left;font-family: sans-serif; font-size: 18px; mso-height-rule: exactly; color: #fff; font-weight:bold;padding-left:10px;" class="stack-column-center">
+                                              <p style="font-size: 12px;font-weight:normal;"><webversion style=" ">Having trouble viewing? <a href = "{{viewAsHTML}}" style="color:#88b7d5;">View web version.</a></webversion></p>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td align="center" valign="middle" width="25%" style = "background:#31404b;">
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+                                        <tr>
+                                            <td style="text-align:right;font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; color: #fff; padding-right:10px;" class="stack-column-center">
+<ul style = 'list-style-type: none;font-size:12px;padding:0;float:right;'>
+    <li style="float: left;"><a href= "https://twitter.com/attensa" target="_blank"style="padding:3px;"> <img src="http://attensa.com/download/files/logos/social/twitter.png" width="22" height="" alt="alt_text" border="0"></a>
+    </li>
+       
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <!--[if mso]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]-->
+                    </td>
+                </tr>
+                <!-- 2column end -->
+                                <!-- 2column begin -->
+                 <tr>
+                    <td bgcolor="#27323a" align="center" height="100%" valign="top" width="100%" style="padding-top: 10px;padding-bottom: 10px">
+                        <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="">
+                            <tr>
+                                <td align="center" valign="middle" width="75%" style = "background:#27323a;">
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;background:#27323a;">
+                                        <tr>
+                                            <td style="text-align: left;font-family: sans-serif; font-size: 18px; mso-height-rule: exactly; color: #fff; font-weight:bold;padding-left:10px;" class="stack-column-center">
+                    <ul style = 'list-style-type: none;font-size:12px;padding:0;margin:0;'>
+                        <li style="float: left;"><a href= "http://attensa.com/about-us"style="padding-right:10px;color:#88b7d5;"target= "_blank">ABOUT</a></li>
+
+                    </ul>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td align="center" valign="middle" width="25%" style = "background:#27323a;">
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+                                        <tr>
+                                            <td style="text-align:right;font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; color: #fff; padding-right:10px;" class="stack-column-center">
+                                                <p style= "width:100px;float:left;">POWERED BY</p> <a href = "www.attensa.com" target="_blank" style="color:#88b7d5;">  <img src="http://attensa.com/download/files/logos/Attensa-Logo-fullwhite-08212016.png" width="80" height="" alt="alt_text" border="0" style="margin-top:10px;"></a>
+                        <br>
+
+
+
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <!--[if mso]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]-->
+                    </td>
+                </tr>
+                <!-- 2column end -->
+
+			</table>
+            <!-- Email Body : END -->
+
+
+
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </div>
+    </center>
+</td></tr></table>
+</body>
+</html>
+
